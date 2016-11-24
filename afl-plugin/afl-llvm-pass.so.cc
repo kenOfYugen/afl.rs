@@ -78,7 +78,7 @@ bool AFLCoverage::runOnModule(Module &M) {
   /* Decide instrumentation ratio */
 
   char* inst_ratio_str = getenv("AFL_INST_RATIO");
-  int inst_ratio = 100;
+  unsigned int inst_ratio = 100;
 
   if (inst_ratio_str) {
 
@@ -110,7 +110,7 @@ bool AFLCoverage::runOnModule(Module &M) {
       BasicBlock::iterator IP = BB.getFirstInsertionPt();
       IRBuilder<> IRB(&(*IP));
 
-      if ((random() % 100) >= inst_ratio) continue;
+      if ((random() % 100) >= (int)inst_ratio) continue;
 
       /* Make up cur_loc */
 
