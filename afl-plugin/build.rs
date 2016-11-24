@@ -60,7 +60,7 @@ fn main() {
     config.file("afl-llvm-pass.so.cc");
     config.flag("-fPIC");
     config.flag("-Wall");
-    config.flag("-Werror");
+    //config.flag("-Werror");
     config.flag("-fno-rtti");
     config.flag("-c");
     for flag in cxx_flags {
